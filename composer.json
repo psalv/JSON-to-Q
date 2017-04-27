@@ -1,0 +1,17 @@
+{
+  "name": "",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Paul Salvatore",
+      "email": "paulanthonysalvatore@gmail.com"
+    }
+  ],
+
+  "require-dev" : {
+    "heroku/heroku-buildpack-php": "*"
+  }
+
+}
