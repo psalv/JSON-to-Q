@@ -81,8 +81,8 @@ function qFxn(){
         currentQuestion = Math.floor(Math.random() * questionsSize);
 
         // Clears the answer and displays the question.
-        aButton.nextElementSibling.innerHTML = "";
-        qButton.nextElementSibling.innerHTML = examdatabase.questions[currentQuestion].question;
+        document.getElementById('answer').innerHTML = "";
+        document.getElementById('question').innerHTML = examdatabase.questions[currentQuestion].question;
     }
 
     // If we try to get a new question before answering the one we are on, we need to show this prompt.
@@ -111,7 +111,7 @@ function buildAnswer(question){
 // Loads and displays the answer to the current question.
 function aFxn(){
     if (currentQuestion != null){
-        aButton.nextElementSibling.innerHTML = buildAnswer(currentQuestion);
+        document.getElementById('answer').innerHTML = buildAnswer(currentQuestion);
     }
 }
 
@@ -120,14 +120,13 @@ function aFxn(){
 // Global variables to keep track of write/wrong.
 var right = 0;
 var wrong = 0;
-var correct = document.getElementById('correct');
 
 // The value incremented depends on whether or not correct is selected.
-correct.addEventListener('click', function () {
+document.getElementById('correct').addEventListener('click', function () {
     increment('c');
 });
 
-correct.nextElementSibling.addEventListener('click', function () {
+document.getElementById('wrong').addEventListener('click', function () {
     increment('i');
 });
 
@@ -169,7 +168,7 @@ function incorrect(){
 }
 
 // The undo button.
-correct.nextElementSibling.nextElementSibling.addEventListener('click', function () {
+document.getElementById('undo').addEventListener('click', function () {
 
     // When ans is null, it means that the question has not been set as correct or incorrect yet.
     if(ans != null) {
@@ -201,13 +200,12 @@ correct.nextElementSibling.nextElementSibling.addEventListener('click', function
 
 // Keep track of the previously chosen question to display the answer for (so we can change it's colour back).
 var previous = null;
-var showButton = document.getElementById('show');
 
 // Bind an event to the show button to build the questions that have been marked as incorrect.
-showButton.addEventListener('click', function () {
+document.getElementById('show').addEventListener('click', function () {
 
     // Since we build a new list of questions, we clear the answer.
-    showButton.nextElementSibling.nextElementSibling.innerHTML = "";
+    document.getElementById('wrongScrollAnswer').innerHTML = "";
 
     // Build all of the questions into a string.
     var buildQuestions = "";
@@ -220,7 +218,7 @@ showButton.addEventListener('click', function () {
     }
 
     // We display the information.
-    showButton.nextElementSibling.innerHTML = buildQuestions;
+    document.getElementById('wrongScroll').innerHTML = buildQuestions;
 
     // Since we have an entirely new set of html tags, we need to bind events to each member of the new class.
     bindQuestionActions();
@@ -246,7 +244,7 @@ function bindQuestionActions(){
             previous = this;
 
             // Build the answers and display them.
-            showButton.nextElementSibling.nextElementSibling.innerHTML = buildAnswer(this.getAttribute('data-num'));
+            document.getElementById('wrongScrollAnswer').innerHTML = buildAnswer(this.getAttribute('data-num'));
         });
     }
 }
