@@ -3,56 +3,77 @@
 
 // ------------------------------- Initialization and global variable declaration. -------------------------------------
 
+var defaultDataSet = "assets/questions/examdatabase.json";
+
 var examdatabase;
 var questionsSize;
 
-$.ajax({
-    url: "assets/questions/examdatabase.json",
-    type: "GET",
-    dataType: 'text',
-    complete: function (response, status) {
-        if(status === 'error'){
-            document.getElementById('description').innerHTML = '<b>Error loading questions.';
-        }
-        else{
-            // console.log(response.responseText);
-            examdatabase = JSON.parse(response.responseText);
-
-            // Displaying the description.
-            document.getElementById('description').innerHTML = '<b>'+examdatabase.description;
-
-            // Ids that will be regularly accessed.
-            qButton = document.getElementById('qButton');
-            aButton = document.getElementById('aButton');
-
-            //Determining how many questions there are.
-            questionsSize = 0;
-            while (examdatabase.questions[questionsSize++] != null){}
-
-            // Accounting for the null as well as the extra incrementation.
-            questionsSize -= 2;
-
-            document.getElementById('n').innerHTML = String(questionsSize);
-        }
-    }
-});
-
 // Booleans to determine if we have answered a question yet, and if we have selected the first question yet.
-var answer = false;
-var first = true;
-var prompt = false;
+var answer;
+var first;
+var prompt;
 
 // A variable that holds the currently selected answer for a question displayed on the screen.
-var ans = null;
+var ans;
 
 // The current question number
-var currentQuestion = null;
+var currentQuestion;
 
 // A list of incorrect questions
-var incorrectQuestions = [];
+var incorrectQuestions;
 
-var streak = 0;
+var streak;
 var temp_streak;
+var started = false;
+
+// todo: remove this, bind to fa icons
+initQ(defaultDataSet);
+
+
+function initQ(dataSet) {
+
+    started = true;
+    answer = false;
+    first = true;
+    prompt = false;
+    ans = null;
+    currentQuestion = null;
+    incorrectQuestions = [];
+    streak = 0;
+
+
+    $.ajax({
+        url: dataSet,
+        type: "GET",
+        dataType: 'text',
+        complete: function (response, status) {
+            if(status === 'error'){
+                document.getElementById('description').innerHTML = '<b>Error loading questions.';
+            }
+            else{
+                // console.log(response.responseText);
+                examdatabase = JSON.parse(response.responseText);
+
+                // Displaying the description.
+                document.getElementById('description').innerHTML = '<b>'+examdatabase.description;
+
+                // Ids that will be regularly accessed.
+                qButton = document.getElementById('qButton');
+                aButton = document.getElementById('aButton');
+
+                //Determining how many questions there are.
+                questionsSize = 0;
+                while (examdatabase.questions[questionsSize++] != null){}
+
+                // Accounting for the null as well as the extra incrementation.
+                questionsSize -= 2;
+
+                document.getElementById('n').innerHTML = String(questionsSize);
+            }
+        }
+    });
+}
+
 
 
 
@@ -61,6 +82,10 @@ var temp_streak;
 // ------------------------------- Loading question/answer. ------------------------------------------------------------
 
 function qFxn(){
+
+    if(!started){
+        return;
+    }
 
     // The question button only works when when we have either determined the
     // correctness of our answer, or are on the first question.
@@ -132,6 +157,10 @@ document.getElementById('wrong').addEventListener('click', function () {
 
 function increment(type){
 
+    if(!started){
+        return;
+    }
+
     // We do not want to be able to answer before we have chosen a question,
     // or if we have already answered the question.
     if (!answer && !first) {
@@ -187,7 +216,7 @@ document.getElementById('undo').addEventListener('click', function () {
         }
 
         document.getElementById('hs').innerHTML = String(streak);
-        document.getElementById('p').innerHTML = String((right/(wrong+right)).toFixed(2));
+        document.getElementById('p').innerHTML = (wrong + right == 0) ? 0 : String((right/(wrong+right)).toFixed(2));
         document.getElementById('nq').innerHTML = String((wrong+right));
 
         // We reset the parameters that are changed when we answer a question.
