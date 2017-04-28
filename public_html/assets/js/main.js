@@ -26,9 +26,12 @@ var streak;
 var temp_streak;
 var started = false;
 
-// todo: remove this, bind to fa icons
-initQ(defaultDataSet);
+// Global variables to keep track of write/wrong.
+var right;
+var wrong;
 
+// Keep track of the previously chosen question to display the answer for (so we can change it's colour back).
+var previous;
 
 function initQ(dataSet) {
 
@@ -41,6 +44,9 @@ function initQ(dataSet) {
     incorrectQuestions = [];
     streak = 0;
 
+    right = 0;
+    wrong = 0;
+    previous = null;
 
     $.ajax({
         url: dataSet,
@@ -142,10 +148,6 @@ function aFxn(){
 
 // ------------------------------- Tracking correct. -------------------------------------------------------------------
 
-// Global variables to keep track of write/wrong.
-var right = 0;
-var wrong = 0;
-
 // The value incremented depends on whether or not correct is selected.
 document.getElementById('correct').addEventListener('click', function () {
     increment('c');
@@ -227,9 +229,6 @@ document.getElementById('undo').addEventListener('click', function () {
 
 // ------------------------------- Displaying incorrect questions/answers. ---------------------------------------------
 
-// Keep track of the previously chosen question to display the answer for (so we can change it's colour back).
-var previous = null;
-
 // Bind an event to the show button to build the questions that have been marked as incorrect.
 document.getElementById('show').addEventListener('click', function () {
 
@@ -279,4 +278,8 @@ function bindQuestionActions(){
 }
 
 
+// ------------------------------- Loading datasets --------------------------------------------------------------------
 
+document.getElementById('defaultData').addEventListener('click', function () {
+    initQ(defaultDataSet);
+});

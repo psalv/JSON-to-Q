@@ -161,7 +161,7 @@ $hasGmap = true;
 
             <br><br>
             Or you can choose to learn about various programming languages and compilers by clicking below:<br>
-            <i class="fa fa-3x fa-arrow-circle-left"></i>
+            <i class="fa fa-3x fa-play-circle" id="defaultData"></i>
         </div>
     </div>
 

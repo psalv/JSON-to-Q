@@ -60,4 +60,5 @@
 }
 h1 {
   font-size: 5em;
+  text-transform: none !important;
 }
