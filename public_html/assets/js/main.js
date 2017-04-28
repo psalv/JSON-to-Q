@@ -7,7 +7,7 @@ var examdatabase;
 var questionsSize;
 
 $.ajax({
-    url: "../questions/examdatabase.json",
+    url: "assets/questions/examdatabase.json",
     type: "GET",
     dataType: 'text',
     complete: function (response, status) {

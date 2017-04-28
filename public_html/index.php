@@ -58,7 +58,6 @@ $hasGmap = true;
 <div id="wrongScrollAnswer" style="overflow-y: scroll; width: 600px; height: 200px; border: solid black 1px"></div>
 
 
-
 <!--=========================================== JS SCRIPTS ==========================================-->
 <!-- jQuery -->
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
