@@ -4,6 +4,7 @@
 // ------------------------------- Initialization and global variable declaration. -------------------------------------
 
 var defaultDataSet = "assets/questions/examdatabase.json";
+var newDataSet;
 
 var examdatabase;
 var questionsSize;
@@ -32,6 +33,7 @@ var wrong;
 
 // Keep track of the previously chosen question to display the answer for (so we can change it's colour back).
 var previous;
+var uploaded = false;
 
 function initQ(dataSet) {
 
@@ -59,6 +61,10 @@ function initQ(dataSet) {
             else{
                 // console.log(response.responseText);
                 examdatabase = JSON.parse(response.responseText);
+
+                if(uploaded){
+                    examdatabase = localStorage.getItem('uploadedFile')
+                }
 
                 // Displaying the description.
                 document.getElementById('description').innerHTML = '<b>'+examdatabase.description;
@@ -283,3 +289,78 @@ function bindQuestionActions(){
 document.getElementById('defaultData').addEventListener('click', function () {
     initQ(defaultDataSet);
 });
+
+
+
+
+
+function uploadFile() {
+    var file = document.getElementById('fileToUpload').files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+        newDataSet = reader.result;
+        console.log(newDataSet);
+        // check();
+        initQ(newDataSet);
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+
+function check() {
+    $.ajax({
+        url: newDataSet,
+        type: 'GET',
+        dataType: 'text',
+        complete: function (response, status) {
+            if(status === 'error'){
+                console.log("er");
+            } else {
+                console.log(response.responseText);
+            }
+
+        }
+    })
+}
+
+
+
+
+// console.log('qq');
+
+
+
+/*
+$('#fileToUpload').change(function(e) {
+    console.log(this.files[0]);
+    var uploadedFile = this.files[0];
+    localStorage.setItem('uploadedFile', uploadedFile);
+    console.log(uploadedFile);
+    uploaded = true;
+});
+
+
+/*
+$(document).ready(function () {
+
+    $('#resumeA').click(function(e) {
+        e.preventDefault();
+        console.log("here");
+        $('#fileToUpload').click();
+        return false;
+    });
+
+    // Once file is done adding to page
+    $('#fileToUpload').change(function(e) {
+        console.log();
+    });
+});
+
+function fileSubmit(e) {
+    console.log("pr");
+
+}
+*/
