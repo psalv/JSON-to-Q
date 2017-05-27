@@ -59,8 +59,12 @@ function initQ(dataSet) {
                 document.getElementById('description').innerHTML = '<b>Error loading questions.';
             }
             else{
-                // console.log(response.responseText);
-                examdatabase = JSON.parse(response.responseText);
+                try {
+                    examdatabase = JSON.parse(response.responseText);
+                } catch (e){
+                    // TODO : show a message
+                    return;
+                }
 
                 if(uploaded){
                     examdatabase = localStorage.getItem('uploadedFile')
@@ -270,7 +274,7 @@ function bindQuestionActions(){
 
             // Set the color of the previously chosen question as black (deselect the question)
             if(previous != null){
-                previous.style.color = 'black';
+                previous.style.color = 'white';
             }
 
             // Set the currently selected question to be red and store it in the previous variable.
@@ -303,4 +307,5 @@ function uploadFile() {
     if (file) {
         reader.readAsDataURL(file);
     }
+
 }

@@ -1,3 +1,12 @@
+body {
+  background-color: #3e3e3b;
+}
+* {
+  color: white;
+}
+h1 {
+  color: #292927 !important;
+}
 .inQuestion:hover {
   cursor: pointer;
 }
@@ -13,45 +22,48 @@
   display: none;
   color: red;
 }
-.scroll {
-  overflow-y: scroll;
+::-webkit-scrollbar {
+  display: none;
 }
 .textBox {
-  width: 98%;
+  border-bottom: #242422 1px solid !important;
+  width: 92%;
   height: 200px;
-  border: solid black 1px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   padding: 10px;
   text-transform: none !important;
+  overflow-y: scroll;
 }
 .sidePanel {
-  background-color: lightgray;
+  background-color: #60605b;
   color: white;
   height: 100vh;
-  padding-right: 0 !important;
+  padding: 35px;
 }
 .questionButtons .btn {
   width: 80px;
 }
 .btn {
   margin-top: 5px;
-  background-color: blue;
-  border-color: blue;
+  background-color: #60605b;
   color: white !important;
 }
 .btn:hover {
-  background-color: #4d4dff;
+  background-color: #878781;
+}
+.btn:focus,
+.btn:active {
+  outline: #60605b !important;
 }
 #undo {
-  color: black !important;
   background-color: transparent;
   border: none !important;
 }
-.prBut {
+.promptButton {
   background-color: transparent;
   border: none !important;
 }
-.prBut:hover {
+.promptButton:hover {
   background-color: transparent;
 }
 #description {
@@ -71,4 +83,10 @@ h1 {
 }
 #defaultData {
   cursor: pointer;
+}
+.t1 {
+  padding-left: 10px;
+}
+.t2 {
+  padding-left: 20px;
 }

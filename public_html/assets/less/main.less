@@ -1,4 +1,17 @@
 
+@GREY: #3e3e3b;
+
+body {
+  background-color: @GREY;
+}
+
+*{
+  color: white;
+}
+
+h1{
+  color: darken(@GREY, 8%) !important;
+}
 
 .inQuestion {
   &:hover{
@@ -21,24 +34,25 @@
   color: red;
 }
 
-.scroll {
-  overflow-y: scroll;
+::-webkit-scrollbar {
+  display: none;
 }
 
 .textBox {
-  width: 98%;
+  border-bottom: darken(@GREY, 10%) 1px solid !important;
+  width: 92%;
   height: 200px;
-  border: solid black 1px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   padding: 10px;
   text-transform: none !important;
+  overflow-y: scroll;
 }
 
 .sidePanel {
-  background-color: lightgray;
+  background-color: lighten(@GREY, 13%);
   color: white;
   height: 100vh;
-  padding-right: 0 !important;
+  padding: 35px
 }
 
 .questionButtons {
@@ -49,21 +63,26 @@
 
 .btn {
   margin-top: 5px;
-  background-color: blue;
-  border-color: blue;
+  background-color: lighten(@GREY, 13%);
+  //border-color: darken(@GREY, 13%);
   color: white !important;
+  //border-color: darken(@GREY, 10%);
 
   &:hover{
-    background-color: lighten(blue, 15%);
+    background-color: lighten(lighten(@GREY, 13%), 15%);
+  }
+
+  &:focus, &:active {
+    outline: lighten(@GREY, 13%) !important;
   }
 }
+
 #undo {
-  color: black !important;
   background-color: transparent;
   border: none !important;
 }
 
-.prBut {
+.promptButton {
   background-color: transparent;
   border: none !important;
   &:hover{
@@ -94,8 +113,9 @@ h1 {
   #upload
 }
 
-
-
-*{
-  //border: 1px red solid !important;
+.t1 {
+  padding-left: 10px;
+}
+.t2 {
+  padding-left: 20px;
 }

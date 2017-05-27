@@ -69,7 +69,7 @@ $hasGmap = true;
                         <button class="btn" id="undo">undo</button>
                     </li>
                     <li>
-                        <button class="btn prBut" disabled>
+                        <button class="btn promptButton" disabled>
                             <div id="prompt">you can't proceed until you've answered.</div>
                         </button>
 
@@ -99,10 +99,10 @@ $hasGmap = true;
             <!-- The wrong question and answer boxes -->
             <div class="row">
                 <div class="col-md-6">
-                    <div class="textBox scroll" id="wrongScroll" ></div>
+                    <div class="textBox" id="wrongScroll" ></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="textBox scroll" id="wrongScrollAnswer"></div>
+                    <div class="textBox" id="wrongScrollAnswer"></div>
                 </div>
             </div>
 
@@ -133,26 +133,29 @@ $hasGmap = true;
     </div>
 
     <div class="col-sm-2 sidePanel">
-        <div>
-            Welcome,<br>
-            This page enables you to quickly make Q-cards from information contained in a JSON file.<br><br>
-            There is specific format require by the question and answer to be in:<br><br>
-            {<br>
-            "description": "The title of the Q card set",<br>
-            "questions": [<br>
-                {<br>
-                    "question": "The first question",<br>
-                    "answer": "Answer",<br>
-                    "note": "optional note"<br>
-                },<br>
-                {<br>
-                    "question": "The next question",<br>
-                    "answer": "Answer",<br>
-                    "note": "optional note"<br>
-                }<br>
-            ]<br>
-            }<br><br><br>
 
+        <div class="row">
+            Welcome,<br><br>
+            This page enables you to quickly make Q-cards from information contained in a JSON file.<br><br>
+            There is specific format require by the question and answer to be in:
+        </div>
+
+        <div class="row">
+            <br>{<br>
+            <span class="t1">"description": "The title of the Q card set",<br></span>
+            <span class="t1">"questions": [ {<br></span>
+            <span class="t2">"question": "The first question",<br></span>
+            <span class="t2">"answer": "Answer",<br></span>
+            <span class="t2">"note": "optional note"<br></span>
+            <span class="t1">}, {<br></span>
+            <span class="t2">"question": "The next question",<br></span>
+            <span class="t2">"answer": "Answer",<br></span>
+            <span class="t2">"note": "optional note"<br></span>
+            <span class="t1">} ]<br></span>
+            }<br><br>
+        </div>
+
+        <div class="row">
             You can upload your file below:<br>
 
             <div class="icons">
@@ -165,8 +168,8 @@ $hasGmap = true;
                 Or you can choose to learn about various programming languages and compilers by clicking below:<br>
                 <i class="fa fa-3x fa-play-circle" id="defaultData"></i>
             </div>
-
         </div>
+
     </div>
 
 </div>
