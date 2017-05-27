@@ -188,71 +188,7 @@ $hasGmap = true;
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
 <!-- Custom JavaScript -->
-<!--<script src="assets/js/dropzone.js" type="text/javascript"></script>-->
 <script src="assets/js/main.js" type="text/javascript"></script>
-
-<!--
-<script>
-
-
-    function parseResponse(response){
-
-        var buildResponse = "";
-        var build = false;
-        var next = false;
-        for(var i = 0; i < response.length; i++){
-            if(next){
-                if(response[i] == '"'){
-                    return buildResponse;
-                }
-                else{
-                    next = false;
-                }
-            }
-
-            if(response[i] == '{'){
-                build = true;
-            }
-
-            if(build){
-                buildResponse += response[i];
-            }
-
-            if(response[i] == '}'){
-                next = true;
-            }
-        }
-        return buildResponse;
-    }
-
-    $('#upForm').submit(function (e) {
-        e.preventDefault();
-
-        $.ajax({
-            url: 'upload.php',
-            crossDomain: false,
-            method: "POST",
-            cache: false,
-
-            complete: function (data) {
-
-                data = $.parseJSON(parseResponse(data.responseText));
-                console.log(data);
-
-                if (data.success === true) {
-
-                    console.log('did it')
-
-                }
-                else {
-                    console.log('didnt it')
-                }
-            }
-        });
-    });
-
-</script>
--->
 
 
 </body>

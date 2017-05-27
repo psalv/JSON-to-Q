@@ -291,17 +291,12 @@ document.getElementById('defaultData').addEventListener('click', function () {
 });
 
 
-
-
-
 function uploadFile() {
     var file = document.getElementById('fileToUpload').files[0];
     var reader = new FileReader();
 
     reader.addEventListener("load", function () {
         newDataSet = reader.result;
-        console.log(newDataSet);
-        // check();
         initQ(newDataSet);
     }, false);
 
@@ -309,58 +304,3 @@ function uploadFile() {
         reader.readAsDataURL(file);
     }
 }
-
-function check() {
-    $.ajax({
-        url: newDataSet,
-        type: 'GET',
-        dataType: 'text',
-        complete: function (response, status) {
-            if(status === 'error'){
-                console.log("er");
-            } else {
-                console.log(response.responseText);
-            }
-
-        }
-    })
-}
-
-
-
-
-// console.log('qq');
-
-
-
-/*
-$('#fileToUpload').change(function(e) {
-    console.log(this.files[0]);
-    var uploadedFile = this.files[0];
-    localStorage.setItem('uploadedFile', uploadedFile);
-    console.log(uploadedFile);
-    uploaded = true;
-});
-
-
-/*
-$(document).ready(function () {
-
-    $('#resumeA').click(function(e) {
-        e.preventDefault();
-        console.log("here");
-        $('#fileToUpload').click();
-        return false;
-    });
-
-    // Once file is done adding to page
-    $('#fileToUpload').change(function(e) {
-        console.log();
-    });
-});
-
-function fileSubmit(e) {
-    console.log("pr");
-
-}
-*/
