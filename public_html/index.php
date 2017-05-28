@@ -22,6 +22,7 @@
     <!-- Custom Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/less/main.css">
 
@@ -36,7 +37,6 @@ $hasGmap = true;
 ?>
 
 <div class="row mainContainer">
-
     <div class="col-lg-10 qContainer">
 
         <div class="row title">
@@ -110,7 +110,7 @@ $hasGmap = true;
             </div>
 
             <!-- Metrics about performance -->
-            <div class="row">
+            <div class="row marginBottom">
                 <ul class="list-inline">
                     <li>
                         <div>Correct: <span id='c'>0</span></div>
@@ -158,19 +158,17 @@ $hasGmap = true;
             }<br><br>
         </div>
 
-        <div class="row">
+        <div class="row icons">
             You can upload your file below:<br><br>
 
-            <div class="icons">
-                <label for="fileToUpload">
-                    <i class="fa fa-3x fa-arrow-circle-up"></i>
-                </label>
-                <input class="hidden" type="file" onchange="uploadFile()" name="fileToUpload" id="fileToUpload">
+            <label for="fileToUpload">
+                <i class="fa fa-3x fa-arrow-circle-up"></i>
+            </label>
+            <input class="hidden" type="file" onchange="uploadFile()" name="fileToUpload" id="fileToUpload">
 
-                <br><br>
-                Or you can choose to learn about various programming languages and compilers by clicking below:<br><br>
-                <i class="fa fa-3x fa-play-circle" id="defaultData"></i>
-            </div>
+            <br><br>
+            Or you can choose to learn about various programming languages and compilers by clicking below:<br><br>
+            <i class="fa fa-3x fa-play-circle" id="defaultData"></i>
         </div>
 
     </div>

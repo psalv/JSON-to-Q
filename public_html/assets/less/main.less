@@ -7,11 +7,13 @@ body {
 
 *{
   color: white;
+  font-family: 'Press Start 2P', cursive;
 }
 
 h1{
   color: darken(@GREY, 8%) !important;
 }
+
 
 .smaller{
   font-size: .85em;
@@ -31,12 +33,14 @@ h1{
   padding-left: 10%;
   padding-top: 4%;
   text-transform: lowercase;
-  min-width: 600px;
+  min-width: 950px;
 }
+
 
 #prompt {
   display: none;
   color: red !important;
+  font-size: 0.6em;
 }
 
 #prompt2{
@@ -61,7 +65,8 @@ h1{
   background-color: lighten(@GREY, 13%);
   color: white;
   height: 100vh;
-  padding: 35px
+  padding: 35px;
+  min-height: 650px;
 }
 
 .questionButtons {
@@ -72,10 +77,9 @@ h1{
 
 .btn {
   margin-top: 5px;
+  width: 150px !important;
   background-color: lighten(@GREY, 13%);
-  //border-color: darken(@GREY, 13%);
   color: white !important;
-  //border-color: darken(@GREY, 10%);
 
   &:hover{
     background-color: lighten(lighten(@GREY, 13%), 15%);
@@ -84,6 +88,10 @@ h1{
   &:focus, &:active {
     outline: lighten(@GREY, 13%) !important;
   }
+}
+
+#show{
+  width: 400px !important;
 }
 
 #undo {
@@ -124,6 +132,10 @@ label{
 
 .makeLeft{
   text-align: left !important;
+}
+
+.marginBottom{
+  margin-bottom: 50px;
 }
 
 .t1 {

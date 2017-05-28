@@ -3,6 +3,7 @@ body {
 }
 * {
   color: white;
+  font-family: 'Press Start 2P', cursive;
 }
 h1 {
   color: #292927 !important;
@@ -20,15 +21,17 @@ h1 {
   padding-left: 10%;
   padding-top: 4%;
   text-transform: lowercase;
-  min-width: 600px;
+  min-width: 950px;
 }
 #prompt {
   display: none;
   color: red !important;
+  font-size: 0.6em;
 }
 #prompt2 {
   display: none;
   color: red !important;
+  font-size: 0.6em;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -47,12 +50,14 @@ h1 {
   color: white;
   height: 100vh;
   padding: 35px;
+  min-height: 650px;
 }
 .questionButtons .btn {
   width: 80px;
 }
 .btn {
   margin-top: 5px;
+  width: 150px !important;
   background-color: #60605b;
   color: white !important;
 }
@@ -62,6 +67,9 @@ h1 {
 .btn:focus,
 .btn:active {
   outline: #60605b !important;
+}
+#show {
+  width: 400px !important;
 }
 #undo {
   background-color: transparent;
@@ -94,6 +102,9 @@ label {
 }
 .makeLeft {
   text-align: left !important;
+}
+.marginBottom {
+  margin-bottom: 50px;
 }
 .t1 {
   padding-left: 10px;
