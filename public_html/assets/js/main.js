@@ -33,7 +33,6 @@ var wrong;
 
 // Keep track of the previously chosen question to display the answer for (so we can change it's colour back).
 var previous;
-var uploaded = false;
 
 function initQ(dataSet) {
 
@@ -61,21 +60,15 @@ function initQ(dataSet) {
             else{
                 try {
                     examdatabase = JSON.parse(response.responseText);
+                    document.getElementById('prompt2').style.display = "none";
                 } catch (e){
-                    // TODO : show a message
+                    console.log("caught");
+                    document.getElementById('prompt2').style.display = "inline";
                     return;
-                }
-
-                if(uploaded){
-                    examdatabase = localStorage.getItem('uploadedFile')
                 }
 
                 // Displaying the description.
                 document.getElementById('description').innerHTML = '<b>'+examdatabase.description;
-
-                // Ids that will be regularly accessed.
-                qButton = document.getElementById('qButton');
-                aButton = document.getElementById('aButton');
 
                 //Determining how many questions there are.
                 questionsSize = 0;
@@ -195,10 +188,10 @@ function increment(type){
             document.getElementById(type).innerHTML = String(++wrong);
         }
 
+
         document.getElementById('hs').innerHTML = String(streak);
         document.getElementById('p').innerHTML = String((right/(wrong+right)).toFixed(2));
         document.getElementById('nq').innerHTML = String((wrong+right));
-
     }
 }
 
@@ -291,7 +284,9 @@ function bindQuestionActions(){
 // ------------------------------- Loading datasets --------------------------------------------------------------------
 
 document.getElementById('defaultData').addEventListener('click', function () {
+    reinitFields();
     initQ(defaultDataSet);
+
 });
 
 
@@ -301,11 +296,23 @@ function uploadFile() {
 
     reader.addEventListener("load", function () {
         newDataSet = reader.result;
+        reinitFields();
         initQ(newDataSet);
     }, false);
 
     if (file) {
         reader.readAsDataURL(file);
     }
+}
 
+function reinitFields() {
+    document.getElementById('c').innerHTML = "0";
+    document.getElementById('i').innerHTML = "0";
+    document.getElementById('p').innerHTML = "0";
+    document.getElementById('hs').innerHTML = "0";
+    document.getElementById('nq').innerHTML = "0";
+    document.getElementById('question').innerHTML = "";
+    document.getElementById('answer').innerHTML = "";
+    document.getElementById('wrongScroll').innerHTML = "";
+    document.getElementById('wrongScrollAnswer').innerHTML = "";
 }

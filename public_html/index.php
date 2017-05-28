@@ -37,7 +37,7 @@ $hasGmap = true;
 
 <div class="row mainContainer">
 
-    <div class="col-sm-10 qContainer">
+    <div class="col-lg-10 qContainer">
 
         <div class="row title">
             <h1>json-to-Q</h1>
@@ -71,6 +71,9 @@ $hasGmap = true;
                     <li>
                         <button class="btn promptButton" disabled>
                             <div id="prompt">you can't proceed until you've answered.</div>
+                        </button>
+                        <button class="btn promptButton" disabled>
+                            <div id="prompt2">please upload a valid json file.</div>
                         </button>
 
                     </li>
@@ -132,7 +135,7 @@ $hasGmap = true;
         </div>
     </div>
 
-    <div class="col-sm-2 sidePanel">
+    <div class="col-lg-2 sidePanel">
 
         <div class="row">
             Welcome,<br><br>
@@ -140,7 +143,7 @@ $hasGmap = true;
             There is specific format require by the question and answer to be in:
         </div>
 
-        <div class="row">
+        <div class="row smaller">
             <br>{<br>
             <span class="t1">"description": "The title of the Q card set",<br></span>
             <span class="t1">"questions": [ {<br></span>
@@ -156,7 +159,7 @@ $hasGmap = true;
         </div>
 
         <div class="row">
-            You can upload your file below:<br>
+            You can upload your file below:<br><br>
 
             <div class="icons">
                 <label for="fileToUpload">
@@ -165,7 +168,7 @@ $hasGmap = true;
                 <input class="hidden" type="file" onchange="uploadFile()" name="fileToUpload" id="fileToUpload">
 
                 <br><br>
-                Or you can choose to learn about various programming languages and compilers by clicking below:<br>
+                Or you can choose to learn about various programming languages and compilers by clicking below:<br><br>
                 <i class="fa fa-3x fa-play-circle" id="defaultData"></i>
             </div>
         </div>
@@ -173,9 +176,6 @@ $hasGmap = true;
     </div>
 
 </div>
-
-
-
 
 
 
@@ -192,7 +192,6 @@ $hasGmap = true;
 
 <!-- Custom JavaScript -->
 <script src="assets/js/main.js" type="text/javascript"></script>
-
 
 </body>
 </html>

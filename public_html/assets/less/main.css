@@ -7,6 +7,9 @@ body {
 h1 {
   color: #292927 !important;
 }
+.smaller {
+  font-size: .85em;
+}
 .inQuestion:hover {
   cursor: pointer;
 }
@@ -17,10 +20,15 @@ h1 {
   padding-left: 10%;
   padding-top: 4%;
   text-transform: lowercase;
+  min-width: 600px;
 }
 #prompt {
   display: none;
-  color: red;
+  color: red !important;
+}
+#prompt2 {
+  display: none;
+  color: red !important;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -78,11 +86,14 @@ h1 {
   display: inline-block;
   text-align: center;
 }
-#upload {
+label {
   cursor: pointer;
 }
 #defaultData {
   cursor: pointer;
+}
+.makeLeft {
+  text-align: left !important;
 }
 .t1 {
   padding-left: 10px;

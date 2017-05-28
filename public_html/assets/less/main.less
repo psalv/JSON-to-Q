@@ -13,6 +13,10 @@ h1{
   color: darken(@GREY, 8%) !important;
 }
 
+.smaller{
+  font-size: .85em;
+}
+
 .inQuestion {
   &:hover{
     cursor: pointer;
@@ -27,11 +31,16 @@ h1{
   padding-left: 10%;
   padding-top: 4%;
   text-transform: lowercase;
+  min-width: 600px;
 }
 
 #prompt {
   display: none;
-  color: red;
+  color: red !important;
+}
+
+#prompt2{
+  #prompt
 }
 
 ::-webkit-scrollbar {
@@ -105,12 +114,16 @@ h1 {
   text-align: center;
 }
 
-#upload{
+label{
   cursor: pointer;
 }
 
 #defaultData{
-  #upload
+  cursor: pointer;
+}
+
+.makeLeft{
+  text-align: left !important;
 }
 
 .t1 {
