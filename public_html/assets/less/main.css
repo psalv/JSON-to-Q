@@ -33,9 +33,6 @@ h1 {
   color: red !important;
   font-size: 0.6em;
 }
-::-webkit-scrollbar {
-  display: none;
-}
 .textBox {
   border-bottom: #242422 1px solid !important;
   width: 92%;
@@ -45,12 +42,15 @@ h1 {
   text-transform: none !important;
   overflow-y: scroll;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 .sidePanel {
   background-color: #60605b;
   color: white;
-  height: 100vh;
   padding: 35px;
   min-height: 650px;
+  height: inherit;
 }
 .questionButtons .btn {
   width: 80px;

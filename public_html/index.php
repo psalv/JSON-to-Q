@@ -140,7 +140,7 @@ $hasGmap = true;
         <div class="row">
             Welcome,<br><br>
             This page enables you to quickly make Q-cards from information contained in a JSON file.<br><br>
-            There is specific format require by the question and answer to be in:
+            There is specific format required for the question and answer to be in:
         </div>
 
         <div class="row smaller">

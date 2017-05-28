@@ -14,7 +14,6 @@ h1{
   color: darken(@GREY, 8%) !important;
 }
 
-
 .smaller{
   font-size: .85em;
 }
@@ -47,10 +46,6 @@ h1{
   #prompt
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .textBox {
   border-bottom: darken(@GREY, 10%) 1px solid !important;
   width: 92%;
@@ -61,12 +56,17 @@ h1{
   overflow-y: scroll;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .sidePanel {
   background-color: lighten(@GREY, 13%);
   color: white;
-  height: 100vh;
+  //height: 100vh;
   padding: 35px;
   min-height: 650px;
+  height: inherit;
 }
 
 .questionButtons {
@@ -144,3 +144,5 @@ label{
 .t2 {
   padding-left: 20px;
 }
+
+

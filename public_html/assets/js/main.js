@@ -316,3 +316,4 @@ function reinitFields() {
     document.getElementById('wrongScroll').innerHTML = "";
     document.getElementById('wrongScrollAnswer').innerHTML = "";
 }
+
